@@ -3,7 +3,7 @@ import assert from 'assert';
 import { shallow } from 'enzyme';
 import { createElement } from 'react';
 
-import reactFromObject from '../src';
+import reactFromObject from '../lib';
 
 
 describe('react-from-object', () => {

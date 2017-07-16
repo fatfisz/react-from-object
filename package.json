@@ -26,6 +26,7 @@
   "scripts": {
     "build": "babel src -d lib",
     "prepublish": "yarn build",
+    "pretest": "yarn build",
     "test": "mocha --compilers js:babel-register"
   },
   "devDependencies": {
