@@ -50,6 +50,19 @@ describe('react-from-object', () => {
     );
   });
 
+  it('should handle a single element child', () => {
+    compare(
+      {
+        type: 'div',
+        children: {
+          type: 'div',
+          children: 'foo',
+        },
+      },
+      '<div><div>foo</div></div>',
+    );
+  });
+
   it('should handle multiple children', () => {
     compare(
       {

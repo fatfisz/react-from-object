@@ -11,13 +11,13 @@ export default function reactFromObject(node) {
 
   if (Array.isArray(children)) {
     processedChildren = children.map(reactFromObject);
-  } else if (children) {
-    processedChildren = reactFromObject(children);
+    return createElement(type, props, ...processedChildren);
   }
 
-  if (processedChildren) {
-    return createElement(type, props, ...processedChildren);
-  } else {
-    return createElement(type, props);
+  if (children) {
+    processedChildren = reactFromObject(children);
+    return createElement(type, props, processedChildren);
   }
+
+  return createElement(type, props);
 }
