@@ -7,16 +7,13 @@ export default function reactFromObject(node) {
   }
 
   const { type, props, children } = node;
-  let processedChildren;
 
   if (Array.isArray(children)) {
-    processedChildren = children.map(reactFromObject);
-    return createElement(type, props, ...processedChildren);
+    return createElement(type, props, ...children.map(reactFromObject));
   }
 
   if (children) {
-    processedChildren = reactFromObject(children);
-    return createElement(type, props, processedChildren);
+    return createElement(type, props, reactFromObject(children));
   }
 
   return createElement(type, props);
